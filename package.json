@@ -1,0 +1,28 @@
+{
+  "name": "user-config",
+  "version": "0.1.0",
+  "description": "Helper for make service config in home folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nim579/user-config.git"
+  },
+  "keywords": [
+    "tools",
+    "utils",
+    "home",
+    "homefolder",
+    "environment",
+    "config",
+    "settings"
+  ],
+  "author": "Nick Iv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nim579/user-config/issues"
+  },
+  "homepage": "https://github.com/nim579/user-config#readme"
+}
