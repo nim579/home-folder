@@ -55,7 +55,7 @@ HomeFolder.prototype.get = function(){
     try {
         config = fs.readFileSync(this.CONFIG_PATH).toString();
     } catch(e){
-        return null;
+        return {};
     }
 
     return JSON.parse(config);
