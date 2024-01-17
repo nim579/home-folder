@@ -1,6 +1,6 @@
 {
   "name": "home-folder",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Helper for make and use project home folder",
   "main": "lib/index.js",
   "scripts": {
