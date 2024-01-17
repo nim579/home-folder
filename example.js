@@ -1,12 +1,12 @@
-var home = require('./');
+const homefolder = require('./lib');
 
-home.init('test');
+homefolder.init('test')
 
-console.log(home.init('test').config());
+console.log(homefolder.config);
 
-var c = {
+homefolder.set({
     foo: Math.random()
-}
+});
 
-console.log(home.set(c).config());
-console.log(home.path('some_file'));
+console.log(homefolder.get());
+console.log(homefolder.path('file.txt'));

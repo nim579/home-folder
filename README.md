@@ -4,41 +4,43 @@ Helper for make and use project home folder.
 
 ## Install
 
-```
+```shell
 npm install home-folder
 ```
 
-## Useage
+## Usage
 
-User **init()** method for start working. Return folder name for your project in this method.
+Call **init()** method for start working with *project name* argument.
+It will make a folder with first dot. For example, if you call `init('test')`, your home folder path will be `~/.test`.
 
-**init()** method make folder with first dot. For example, if you call `init('test')`, your path home folder will be `~/.test`.
+If you run your project from `npm run` your project name (from package.json) will be used by default and no need to call `init()` method.
 
 ```js
 var home = require('home-folder');
 
 home.init('project_name');
 
-home.config({
+home.config = {
     login: 'nim579',
     foo: 'bar'
-});
+};
 
 fs.writeFileSync(home.resolve('tmp'), 'ololo');
 ```
 
 See [example.js](example.js).
 
-## Variables
-* *PATH* — path to project home folder;
-* *CONFIG_PATH* — path to config file in home folder;
-* *CONFIG_FILENAME* — config file name, default: *config.json*. You can change it before calling **init()**.
-
-You can't change the variables after calling **init()** method.
-
 ## Methods
-* **init(project_name)** — init home folder (make it if nessessary), and sets variables.
-* **config([config_object])** — save or load config from home folder;
-* **get()** — load and return config from home folder. Works like **config()** without arguments;
-* **set([config_object])** — save config to home folder. Works like **config(config_object)** with argument;
-* **path([paths...])** or **resolve([paths...])** — resolves paths to an home folder path. Works like **path.resolve()** in [Node.js](https://nodejs.org/dist/latest-v4.x/docs/api/path.html#path_path_resolve_from_to).
+
+* `init(projectName: string)` — inits home folder (if nessessary), and sets variables;
+* `set<T>(config: T)` — sets config to your project;
+* `get<T>(): T` — returns config of your project;
+* `path(...paths: string[])` or `resolve(...paths: string[])` — resolves path from project home folder. Works like  in [**path.resolve()**](https://nodejs.org/dist/latest/docs/api/path.html#pathresolvepaths).
+* `get config`, `set config` — getter/setter alias for `get()`/`set()`;
+
+## Properties
+
+* **HOMEPATH** — path to os home folder. You can use *HOME* env variable for manage it;
+* **CONFIG_FILENAME** — file name of project config file (default: *config.json*). You can override it by *CONFIG_FILENAME* env variable;
+* **CONFIG_PATH** — path to project home folder. You can override it by *CONFIG_FILENAME* env variable;
+* **PROJECT_NAME** — project name will be available after `init()` method or from package.json if you run your script by `npm run`;
